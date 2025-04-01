@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathHaven - Professional Math Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f7f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        nav {
+            background-color: #2d6a4f;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        nav h1 {
+            font-family: 'Lora', serif;
+            font-size: 1.8em;
+            color: #fff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #95d5b2;
+        }
+        header {
+            background: linear-gradient(135deg, #40916c, #74c69d);
+            padding: 100px 20px 60px;
+            text-align: center;
+            color: #fff;
+        }
+        header h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 40px;
+        }
+        .tool-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 2em;
+            color: #2d6a4f;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .tool-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        input[type="number"], input[type="text"], select {
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 130px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #40916c;
+            outline: none;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 1em;
+            background-color: #40916c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2d6a4f;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #40916c;
+            font-size: 1.2em;
+        }
+        footer {
+            background-color: #2d6a4f;
+            padding: 30px;
+            color: #fff;
+            text-align: center;
+            margin-top: 60px;
+        }
+        footer p {
+            color: #fff;
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                gap: 15px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            input[type="number"], input[type="text"], select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MathHaven</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <h1>Welcome to MathHaven</h1>
+        <p>A professionally crafted suite of mathematical tools designed to empower learners, educators, and enthusiasts of all ages with precision, elegance, and ease.</p>
+    </header>
+
+    <div class="container" id="tools">
+        <h2>Mathematical Tools</h2>
+        <p>Explore our extensive collection of tools, each meticulously designed to simplify complex concepts and enhance your mathematical journey. From foundational arithmetic to advanced calculations, MathHaven is your trusted resource.</p>
+
+        <div class="tool-grid">
+            <!-- Tool 1: Basic Calculator -->
+            <div class="tool-card">
+                <h2>Basic Calculator</h2>
+                <p>A cornerstone of daily math, this calculator handles addition, subtraction, multiplication, and division with seamless precision. Ideal for children tallying toys, students verifying homework, or professionals balancing accounts, it offers instant results for any two numbers. Whether you’re summing up a grocery list or dividing a group project’s workload, this tool ensures accuracy and simplicity in every operation.</p>
+                <div class="tool-input">
+                    <input type="number" id="num1" placeholder="First number">
+                    <select id="operation">
+                        <option value="add">+</option>
+                        <option value="subtract">-</option>
+                        <option value="multiply">×</option>
+                        <option value="divide">÷</option>
+                    </select>
+                    <input type="number" id="num2" placeholder="Second number">
+                    <button onclick="calculate()">Calculate</button>
+                </div>
+                <div class="result" id="calcResult">Result: </div>
+            </div>
+
+            <!-- Tool 2: Fraction Simplifier -->
+            <div class="tool-card">
+                <h2>Fraction Simplifier</h2>
+                <p>Transform unwieldy fractions into their simplest forms with this elegant tool. Perfect for young learners splitting snacks (e.g., 6/9 becomes 2/3), students streamlining algebraic expressions, or cooks adjusting recipes, it uses the greatest common divisor to reduce fractions effortlessly. Input the numerator and denominator, and watch complexity melt away into clarity, making fractions a breeze for all.</p>
+                <div class="tool-input">
+                    <input type="number" id="numerator" placeholder="Numerator">
+                    <span>/</span>
+                    <input type="number" id="denominator" placeholder="Denominator">
+                    <button onclick="simplifyFraction()">Simplify</button>
+                </div>
+                <div class="result" id="fracResult">Result: </div>
+            </div>
+
+            <!-- Tool 3: Percentage Calculator -->
+            <div class="tool-card">
+                <h2>Percentage Calculator</h2>
+                <p>Unlock the power of percentages with this intuitive tool. Calculate discounts (e.g., 20% off $50), tips (15% of $30), or portions (10% of 200 candies) with ease. It’s a lifesaver for kids learning money math, teens mastering sales tax, or adults analyzing data. Enter a number and percentage, and get precise results instantly—bridging theory to practice for every age.</p>
+                <div class="tool-input">
+                    <input type="number" id="percentNum" placeholder="Number">
+                    <input type="number" id="percent" placeholder="Percentage (%)">
+                    <button onclick="calcPercent()">Calculate</button>
+                </div>
+                <div class="result" id="percentResult">Result: </div>
+            </div>
+
+            <!-- Tool 4: Rectangle Area Calculator -->
+            <div class="tool-card">
+                <h2>Rectangle Area Calculator</h2>
+                <p>Measure the space within a rectangle with professional-grade simplicity. Multiply length by width to plan a child’s sandbox (3 × 4 = 12 sq ft), design a classroom poster, or estimate flooring needs. This tool scales from playful geometry lessons to real-world applications, delivering accurate areas in any unit you choose—making spatial math accessible and practical.</p>
+                <div class="tool-input">
+                    <input type="number" id="length" placeholder="Length">
+                    <input type="number" id="width" placeholder="Width">
+                    <button onclick="calcArea()">Calculate</button>
+                </div>
+                <div class="result" id="areaResult">Result: </div>
+            </div>
+
+            <!-- Tool 5: Multiplication Table Generator -->
+            <div class="tool-card">
+                <h2>Multiplication Table Generator</h2>
+                <p>Master multiplication with this dynamic generator. Input a number (1-12) to see its times table—e.g., 8 × 1 = 8 up to 8 × 12 = 96. Kids build fluency, students reinforce skills, and adults refresh mental math for tasks like scheduling. It’s a polished, interactive way to turn repetition into mastery, crafted for learners at every stage.</p>
+                <div class="tool-input">
+                    <input type="number" id="tableNum" placeholder="Number (1-12)">
+                    <button onclick="generateTable()">Generate</button>
+                </div>
+                <div class="result" id="tableResult">Result: </div>
+            </div>
+
+            <!-- Tool 6: Quadratic Equation Solver -->
+            <div class="tool-card">
+                <h2>Quadratic Equation Solver</h2>
+                <p>Solve quadratic equations (ax² + bx + c = 0) with precision and ease. From simple forms (x² - 9 = 0, roots: 3, -3) to complex ones (2x² + 5x - 3 = 0), this tool uses the quadratic formula to find roots. It’s perfect for teens in algebra class, adults in engineering, or curious minds exploring parabolas—delivering professional results every time.</p>
+                <div class="tool-input">
+                    <input type="number" id="quadA" placeholder="a">
+                    <input type="number" id="quadB" placeholder="b">
+                    <input type="number" id="quadC" placeholder="c">
+                    <button onclick="solveQuadratic()">Solve</button>
+                </div>
+                <div class="result" id="quadResult">Result: </div>
+            </div>
+
+            <!-- Tool 7: Prime Number Checker -->
+            <div class="tool-card">
+                <h2>Prime Number Checker</h2>
+                <p>Discover the magic of prime numbers—those divisible only by 1 and themselves (e.g., 13, 19). Enter a number to see if it’s prime or get its factors if it’s not. Kids can explore small primes, students study number theory, and adults enjoy the elegance of math’s building blocks. This tool offers a clean, professional check for any integer.</p>
+                <div class="tool-input">
+                    <input type="number" id="primeNum" placeholder="Number">
+                    <button onclick="checkPrime()">Check</button>
+                </div>
+                <div class="result" id="primeResult">Result: </div>
+            </div>
+
+            <!-- Tool 8: Circle Calculator -->
+            <div class="tool-card">
+                <h2>Circle Calculator</h2>
+                <p>Calculate a circle’s circumference and area with this refined tool. Input the radius—say, 5—to get 31.42 (circumference) and 78.54 (area) using π. Kids measure round objects, teens solve geometry problems, and adults design circular spaces. It’s a sleek, accurate way to bring circular math into focus for all.</p>
+                <div class="tool-input">
+                    <input type="number" id="radius" placeholder="Radius">
+                    <button onclick="calcCircle()">Calculate</button>
+                </div>
+                <div class="result" id="circleResult">Result: </div>
+            </div>
+
+            <!-- Tool 9: Mean (Average) Calculator -->
+            <div class="tool-card">
+                <h2>Mean (Average) Calculator</h2>
+                <p>Find the average of any number set with professional finesse. Type "10, 20, 30" to get 20—great for kids averaging game scores, students analyzing data, or adults tracking expenses. This tool sums your numbers and divides by the count, delivering a polished result that introduces statistics to all ages.</p>
+                <div class="tool-input">
+                    <input type="text" id="meanNumbers" placeholder="e.g., 5, 10, 15">
+                    <button onclick="calcMean()">Calculate</button>
+                </div>
+                <div class="result" id="meanResult">Result: </div>
+            </div>
+
+            <!-- Tool 10: Exponent Calculator -->
+            <div class="tool-card">
+                <h2>Exponent Calculator</h2>
+                <p>Raise numbers to any power with this sophisticated tool. Compute 3⁴ (81) for kids learning exponents, growth rates for teens, or investment returns for adults. Enter a base and exponent, and get a precise result—perfect for exploring exponential concepts with a professional edge.</p>
+                <div class="tool-input">
+                    <input type="number" id="base" placeholder="Base">
+                    <input type="number" id="exponent" placeholder="Exponent">
+                    <button onclick="calcExponent()">Calculate</button>
+                </div>
+                <div class="result" id="expResult">Result: </div>
+            </div>
+
+            <!-- Tool 11: Trigonometry Calculator -->
+            <div class="tool-card">
+                <h2>Trigonometry Calculator</h2>
+                <p>Unlock angles with sine, cosine, and tangent. Enter an angle (in degrees) to get all three values—e.g., 30° gives sin ≈ 0.5, cos ≈ 0.87. Kids explore shapes, teens tackle triangles, and adults apply it to construction or navigation. This tool brings trig to life with professional accuracy.</p>
+                <div class="tool-input">
+                    <input type="number" id="angle" placeholder="Angle (degrees)">
+                    <button onclick="calcTrig()">Calculate</button>
+                </div>
+                <div class="result" id="trigResult">Result: </div>
+            </div>
+
+            <!-- Tool 12: Unit Converter -->
+            <div class="tool-card">
+                <h2>Unit Converter</h2>
+                <p>Convert lengths (meters to feet, etc.) with this versatile tool. Input a value and choose units—e.g., 10 meters ≈ 32.81 feet. Kids compare heights, students switch units for science, and adults adjust measurements for travel or DIY. It’s a polished utility for global math fluency.</p>
+                <div class="tool-input">
+                    <input type="number" id="unitValue" placeholder="Value">
+                    <select id="unitFrom">
+                        <option value="meters">Meters</option>
+                        <option value="feet">Feet</option>
+                    </select>
+                    <select id="unitTo">
+                        <option value="feet">Feet</option>
+                        <option value="meters">Meters</option>
+                    </select>
+                    <button onclick="convertUnits()">Convert</button>
+                </div>
+                <div class="result" id="unitResult">Result: </div>
+            </div>
+
+            <!-- Tool 13: Factoring Tool -->
+            <div class="tool-card">
+                <h2>Factoring Tool</h2>
+                <p>Break numbers into their factors with this advanced tool. Enter 12 to get 2 × 2 × 3, or 100 for 2 × 2 × 5 × 5. Kids learn multiplication roots, teens simplify algebra, and adults explore number properties. It’s a professional-grade factoring engine for all levels.</p>
+                <div class="tool-input">
+                    <input type="number" id="factorNum" placeholder="Number">
+                    <button onclick="factorNumber()">Factor</button>
+                </div>
+                <div class="result" id="factorResult">Result: </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="about">
+        <p>MathHaven - A bespoke, open-source platform for mathematical excellence, designed for the world.</p>
+    </footer>
+
+    <script>
+        // Basic Calculator
+        function calculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operation = document.getElementById("operation").value;
+            let result;
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Enter valid numbers.";
+            } else {
+                switch (operation) {
+                    case "add": result = num1 + num2; break;
+                    case "subtract": result = num1 - num2; break;
+                    case "multiply": result = num1 * num2; break;
+                    case "divide": 
+                        if (num2 === 0) result = "Cannot divide by zero.";
+                        else result = (num1 / num2).toFixed(4);
+                        break;
+                }
+            }
+            document.getElementById("calcResult").textContent = `Result: ${result}`;
+        }
+
+        // Fraction Simplifier
+        function simplifyFraction() {
+            const num = parseInt(document.getElementById("numerator").value);
+            const den = parseInt(document.getElementById("denominator").value);
+            if (isNaN(num) || isNaN(den) || den === 0) {
+                document.getElementById("fracResult").textContent = "Result: Enter valid numbers (denominator ≠ 0).";
+                return;
+            }
+            const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+            const divisor = gcd(Math.abs(num), Math.abs(den));
+            const simplifiedNum = num / divisor;
+            const simplifiedDen = den / divisor;
+            document.getElementById("fracResult").textContent = `Result: ${simplifiedNum}/${simplifiedDen}`;
+        }
+
+        // Percentage Calculator
+        function calcPercent() {
+            const num = parseFloat(document.getElementById("percentNum").value);
+            const percent = parseFloat(document.getElementById("percent").value);
+            if (isNaN(num) || isNaN(percent)) {
+                document.getElementById("percentResult").textContent = "Result: Enter valid numbers.";
+                return;
+            }
+            const result = (num * percent) / 100;
+            document.getElementById("percentResult").textContent = `Result: ${result.toFixed(2)}`;
+        }
+
+        // Rectangle Area Calculator
+        function calcArea() {
+            const length = parseFloat(document.getElementById("length").value);
+            const width = parseFloat(document.getElementById("width").value);
+            if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+                document.getElementById("areaResult").textContent = "Result: Enter positive numbers.";
+                return;
+            }
+            const area = length * width;
+            document.getElementById("areaResult").textContent = `Result: ${area.toFixed(2)} square units`;
+        }
+
+        // Multiplication Table Generator
+        function generateTable() {
+            const num = parseInt(document.getElementById("tableNum").value);
+            if (isNaN(num) || num < 1 || num > 12) {
+                document.getElementById("tableResult").textContent = "Result: Enter a number between 1 and 12.";
+                return;
+            }
+            let table = "";
+            for (let i = 1; i <= 12; i++) {
+                table += `${num} × ${i} = ${num * i}<br>`;
+            }
+            document.getElementById("tableResult").innerHTML = `Result:<br>${table}`;
+        }
+
+        // Quadratic Equation Solver
+        function solveQuadratic() {
+            const a = parseFloat(document.getElementById("quadA").value);
+            const b = parseFloat(document.getElementById("quadB").value);
+            const c = parseFloat(document.getElementById("quadC").value);
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
+                document.getElementById("quadResult").textContent = "Result: Enter valid numbers (a ≠ 0).";
+                return;
+            }
+            const discriminant = b * b - 4 * a * c;
+            let result;
+            if (discriminant > 0) {
+                const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                result = `Roots: ${root1.toFixed(4)}, ${root2.toFixed(4)}`;
+            } else if (discriminant === 0) {
+                const root = -b / (2 * a);
+                result = `Root: ${root.toFixed(4)}`;
+            } else {
+                result = "No real roots.";
+            }
+            document.getElementById("quadResult").textContent = `Result: ${result}`;
+        }
+
+        // Prime Number Checker
+        function checkPrime() {
+            const num = parseInt(document.getElementById("primeNum").value);
+            if (isNaN(num) || num < 2) {
+                document.getElementById("primeResult").textContent = "Result: Enter a number greater than 1.";
+                return;
+            }
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            document.getElementById("primeResult").textContent = isPrime ? `Result: ${num} is prime.` : `Result: ${num} is not prime.`;
+        }
+
+        // Circle Calculator
+        function calcCircle() {
+            const radius = parseFloat(document.getElementById("radius").value);
+            if (isNaN(radius) || radius <= 0) {
+                document.getElementById("circleResult").textContent = "Result: Enter a positive number.";
+                return;
+            }
+            const circumference = 2 * Math.PI * radius;
+            const area = Math.PI * radius * radius;
+            document.getElementById("circleResult").textContent = `Result: Circumference = ${circumference.toFixed(2)}, Area = ${area.toFixed(2)} sq units`;
+        }
+
+        // Mean (Average) Calculator
+        function calcMean() {
+            const input = document.getElementById("meanNumbers").value;
+            const numbers = input.split(",").map(num => parseFloat(num.trim()));
+            if (numbers.some(isNaN) || numbers.length === 0) {
+                document.getElementById("meanResult").textContent = "Result: Enter valid numbers separated by commas.";
+                return;
+            }
+            const sum = numbers.reduce((a, b) => a + b, 0);
+            const mean = sum / numbers.length;
+            document.getElementById("meanResult").textContent = `Result: Mean = ${mean.toFixed(2)}`;
+        }
+
+        // Exponent Calculator
+        function calcExponent() {
+            const base = parseFloat(document.getElementById("base").value);
+            const exponent = parseInt(document.getElementById("exponent").value);
+            if (isNaN(base) || isNaN(exponent)) {
+                document.getElementById("expResult").textContent = "Result: Enter valid numbers.";
+                return;
+            }
+            const result = Math.pow(base, exponent);
+            document.getElementById("expResult").textContent = `Result: ${base}^${exponent} = ${result.toFixed(2)}`;
+        }
+
+        // Trigonometry Calculator
+        function calcTrig() {
+            const angle = parseFloat(document.getElementById("angle").value);
+            if (isNaN(angle)) {
+                document.getElementById("trigResult").textContent = "Result: Enter a valid angle.";
+                return;
+            }
+            const radians = angle * (Math.PI / 180);
+            const sin = Math.sin(radians).toFixed(4);
+            const cos = Math.cos(radians).toFixed(4);
+            const tan = Math.tan(radians).toFixed(4);
+            document.getElementById("trigResult").textContent = `Result: sin(${angle}°) = ${sin}, cos(${angle}°) = ${cos}, tan(${angle}°) = ${tan}`;
+        }
+
+        // Unit Converter
+        function convertUnits() {
+            const value = parseFloat(document.getElementById("unitValue").value);
+            const from = document.getElementById("unitFrom").value;
+            const to = document.getElementById("unitTo").value;
+            if (isNaN(value)) {
+                document.getElementById("unitResult").textContent = "Result: Enter a valid number.";
+                return;
+            }
+            let result;
+            if (from === "meters" && to === "feet") result = value * 3.28084;
+            else if (from === "feet" && to === "meters") result = value / 3.28084;
+            else result = value; // Same units
+            document.getElementById("unitResult").textContent = `Result: ${result.toFixed(2)} ${to}`;
+        }
+
+        // Factoring Tool
+        function factorNumber() {
+            const num = parseInt(document.getElementById("factorNum").value);
+            if (isNaN(num) || num < 1) {
+                document.getElementById("factorResult").textContent = "Result: Enter a positive number.";
+                return;
+            }
+            let factors = [];
+            let n = num;
+            for (let i = 2; i <= n; i++) {
+                while (n % i === 0) {
+                    factors.push(i);
+                    n /= i;
+                }
+            }
+            document.getElementById("factorResult").textContent = factors.length > 0 ? `Result: ${factors.join(" × ")}` : `Result: ${num} (prime)`;
+        }
+    </script>
+</body>
+</html>
